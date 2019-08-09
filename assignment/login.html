@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+  body{
+	 background-color: rgb(4, 29, 49);
+	}
+  .login-box{
+	color: black;
+	width:300px;
+	height:400px;
+	top:50%;
+	left:50%;
+	position:absolute;
+	box-sizing:border-box;
+	}
+ form{
+	width:350px;
+	height:300px;
+	text-align:center;
+	background-color:pink;
+	}
+h2{
+  color:red;
+  font-size:30px;}
+input[type="text"], input[type="password"] {
+	border-bottom: 1px solid #fff;
+	background:transparent;
+	background-color:white;
+	font-size:16px;
+	line-height:20px;
+	padding:10px 0;
+	border-radius:2px;
+	width:90%;
+	margin-bottom:20px;
+}
+input[type="button"] {
+	background:#1c8adb;
+	background-color:blue;
+	font-size:14px;
+	height:40px;
+	border-radius: 20px;
+	width:70%;
+	margin-bottom:20px;}
+input[type="button"]:hover {
+ curser:pointer;
+ background:#39dc79;
+ color:#000;
+}
+  </style>
+  <script type="text/javascript">
+    function validate()
+    {
+      if(document.getElementById("text1").value == "user@gmail.com" && document.getElementById("text2").value == "123456" )
+      {
+        location.href="index.html";
+      }
+      else
+      {
+        alert( "Wrong Username or Password" );
+      }
+    }
+    function registrationPage()
+    {
+      location.href="registration.html";
+    }
+  </script>
+</head>
+<body>
+<div class="login-box">
+  <form>
+  <h2>Login</h2>
+    <input type="text" placeholder="Username" id="text1" name="Username" required /><br />
+    <input type="password" placeholder="Password" id="text2" name="Password" required /><br />
+    <input type="button" value="Login" onclick="javascript:validate()" />
+<input type="button" value="Register" onclick="javascript:registrationPage()" />
+  </form>
+  </div>
+</body>
+</html>
+ 
