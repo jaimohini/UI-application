@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!--jQuery library-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!--Latest compiled and minified JavaScript-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            .list {
+                width: 200px;
+                height: 150px;
+                margin-top: 50px;
+
+            }
+
+            #btns {
+                text-align: center;
+                margin-top: 80px;
+            }
+
+
+            .navbar-nav>li>a {
+                color: white;
+            }
+           
+            
+        </style>
+        <script>
+            function Option_list(selectbox) {
+                addOption(document.drop_list.box1, "Anu", "Anu");
+                addOption(document.drop_list.box1, "Babita", "Babita");
+                addOption(document.drop_list.box1, "Diksha", "Diksha");
+                addOption(document.drop_list.box1, "Snehitha", "snehitha");
+                addOption(document.drop_list.box1, "Shikha", "Shikha");
+                addOption(document.drop_list.box1, "Shefali", "Shefali");
+            }
+
+            function addOption(selectbox, text, value) {
+                var optn = document.createElement("OPTION");
+                optn.text = text;
+                optn.value = value;
+                selectbox.options.add(optn);
+            }
+
+            function removeOption(listbox, i) {
+                listbox.remove(i);
+            }
+
+            function assign() {
+                for (i = document.drop_list.box1.options.length - 1; i >= 0; i--) {
+                    var box1 = document.drop_list.box1;
+                    if (document.drop_list.box1[i].selected) {
+                        addOption(document.drop_list.box2, document.drop_list.box1[i].value, document.drop_list
+                            .box1[i].value);
+                        removeOption(box1, i);
+                    }
+                }
+            }
+
+            function revoke() {
+                for (i = document.drop_list.box2.options.length - 1; i >= 0; i--) {
+                    var box2 = document.drop_list.box2;
+                    if (document.drop_list.box2[i].selected) {
+                        addOption(document.drop_list.box1, document.drop_list.box2[i].value, document.drop_list
+                            .box2[i].value);
+                        removeOption(box2, i);
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="Option_list()" ;>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">TOTAL CLOUD</a>
+                </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Feature</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Screenshort</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <h1 style="text-align: center">Resource allocation application</h1>
+                </div>
+        </nav>
+        <div class='col-md-12  col-md-offset-2'>
+            <form name="drop_list" action="yourpage.php" method="post">
+                <div class='row'>
+                    <div class='col-md-2'>
+                        <select name="box1" multiple="multiple" size="10" class='list'>
+                        </select>
+                    </div>
+                    <div id="btns" class='col-md-2'>
+                        <button onclick="assign()" ;="" value="Assign >>" type="button" class="btn btn-primary ">Assign
+                            >></button> <br><br><br>
+
+                        <button onclick="revoke()" ;="" value="Revoke" type="button" class="btn btn-primary ">
+                            << Revoke </button> </div> <div class='col-md-2'>
+                                <select id="box2" name="box2" multiple="multiple" size="10" class='list'></select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+
+</html>
